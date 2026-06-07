@@ -6,7 +6,9 @@ from handlers.game import game
 
 from telegram.ext import CommandHandler
 
-TOKEN = "YOUR_TOKEN"
+import os
+
+TOKEN = os.getenv("BOT_TOKEN")
 
 app = Application.builder().token(TOKEN).build()
 
