@@ -51,27 +51,13 @@ The goal is not perfection — the goal is growth.
 © 2025–2026 Makki — Growth • Creativity • Innovation"""
 
     keyboard = [
-        [
-            InlineKeyboardButton(
-                "🛍 Explore Services",
-                callback_data="cmd_shop"
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                "📈 Market Updates",
-                callback_data="cmd_finance"
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                "📩 Get in Touch",
-                callback_data="cmd_contact"
-            )
-        ],
+        [InlineKeyboardButton("🛍 Explore Services", callback_data="cmd_shop")],
+        [InlineKeyboardButton("📈 Market Updates", callback_data="cmd_finance")],
+        [InlineKeyboardButton("📩 Get in Touch", callback_data="cmd_contact")],
     ]
 
-    await update.message.reply_photo(
+    await context.bot.send_photo(
+        chat_id=update.effective_chat.id,
         photo=PHOTO_URL,
         caption=text,
         parse_mode="HTML",

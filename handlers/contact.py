@@ -31,11 +31,11 @@ Building an international ecosystem of creative projects, digital products, comm
 © 2025 Makki. All rights reserved.
 """
 
-    await update.message.reply_text(
+    await context.bot.send_photo(
+        chat_id=update.effective_chat.id,
         photo=PHOTO_URL,
         caption=text,
         parse_mode="HTML",
-        disable_web_page_preview=True
     )
 
 

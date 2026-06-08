@@ -46,10 +46,11 @@ makki.creative@gmail.com
 
 © 2025–2026 Makki — Growth • Creativity • Innovation"""
 
-    await update.message.reply_text(
+    await context.bot.send_photo(
+        chat_id=update.effective_chat.id,
         photo=PHOTO_URL,
         caption=text,
-        parse_mode="HTML"
+        parse_mode="HTML",
     )
 
 project_handler = CommandHandler("project", project_command)

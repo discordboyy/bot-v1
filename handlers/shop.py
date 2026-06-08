@@ -49,10 +49,11 @@ async def shop_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 © 2025–2026 Makki — Growth • Creativity • Innovation"""
 
-    await update.message.reply_text(
+    await context.bot.send_photo(
+        chat_id=update.effective_chat.id,
         photo=PHOTO_URL,
         caption=text,
-        parse_mode="HTML"
+        parse_mode="HTML",
     )
 
 shop_handler = CommandHandler("shop", shop_command)

@@ -150,7 +150,8 @@ BNB: ${bnb_price:,.2f} - {fmt_change(bnb_change)}
 Makki System
 """
 
-            await update.message.reply_photo(
+            await context.bot.send_photo(
+                chat_id=update.effective_chat.id,
                 photo=PHOTO_URL,
                 caption=text,
                 parse_mode="HTML"
