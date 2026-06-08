@@ -3,6 +3,7 @@ import httpx
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
+PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki.png"
 
 async def finance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
@@ -78,18 +79,19 @@ USD/NOK: <b>{usd_nok:.4f}</b>
 
 <b>₿ Crypto (24h)</b>
 
-BTC: <b>${btc_price:,.2f} - {fmt_change(btc_change)}
+BTC: ${btc_price:,.2f} - {fmt_change(btc_change)}
 
-ETH: <b>${eth_price:,.2f} - {fmt_change(eth_change)}
+ETH: ${eth_price:,.2f} - {fmt_change(eth_change)}
 
-BNB: <b>${bnb_price:,.2f} - {fmt_change(bnb_change)}
+BNB: ${bnb_price:,.2f} - {fmt_change(bnb_change)}
 
 ━━━━━━━━━━━━━━
 Makki System
 """
 
-        await update.message.reply_text(
-            text,
+        await update.message.reply_photo(
+            photo=PHOTO_URL,
+            caption=text,
             parse_mode="HTML"
         )
 

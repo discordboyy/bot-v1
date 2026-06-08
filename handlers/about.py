@@ -5,7 +5,7 @@ from telegram import (
 )
 from telegram.ext import ContextTypes, CommandHandler
 
-PHOTO_URL = "assets/makki_about.jpg"
+PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki.png"
 
 async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """<b>About Makki</b>
