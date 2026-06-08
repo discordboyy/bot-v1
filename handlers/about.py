@@ -47,11 +47,6 @@ The goal is not perfection — the goal is growth.
 
 ━━━━━━━━━━━━━━
 
-    Use /shop to explore services
-    Use /finance for market updates
-    Use /contact to get in touch
-
-━━━━━━━━━━━━━━
 
 © 2025–2026 Makki — Growth • Creativity • Innovation"""
 

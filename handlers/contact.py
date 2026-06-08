@@ -1,6 +1,7 @@
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
+PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki.png"
 
 async def contact_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
@@ -31,7 +32,8 @@ Building an international ecosystem of creative projects, digital products, comm
 """
 
     await update.message.reply_text(
-        text,
+        photo=PHOTO_URL,
+        caption=text,
         parse_mode="HTML",
         disable_web_page_preview=True
     )

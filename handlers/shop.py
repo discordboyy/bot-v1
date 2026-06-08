@@ -1,6 +1,8 @@
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
+PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki-v2.png"
+
 async def shop_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """<b>Makki Shop</b>
 
@@ -47,6 +49,10 @@ async def shop_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 © 2025–2026 Makki — Growth • Creativity • Innovation"""
 
-    await update.message.reply_text(text, parse_mode="HTML")
+    await update.message.reply_text(
+        photo=PHOTO_URL,
+        caption=text,
+        parse_mode="HTML"
+    )
 
 shop_handler = CommandHandler("shop", shop_command)

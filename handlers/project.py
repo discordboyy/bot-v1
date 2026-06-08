@@ -1,6 +1,8 @@
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
+PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki-v4.png"
+
 async def project_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """<b>Makki Project</b>
 
@@ -44,6 +46,10 @@ makki.creative@gmail.com
 
 © 2025–2026 Makki — Growth • Creativity • Innovation"""
 
-    await update.message.reply_text(text, parse_mode="HTML")
+    await update.message.reply_text(
+        photo=PHOTO_URL,
+        caption=text,
+        parse_mode="HTML"
+    )
 
 project_handler = CommandHandler("project", project_command)
