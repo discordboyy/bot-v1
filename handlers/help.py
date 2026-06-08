@@ -1,7 +1,7 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, CommandHandler, CallbackQueryHandler
 
-HELP_TEXT = """🌑 <b>Makki — Command Center</b>
+HELP_TEXT = """<b>Makki — Command Center</b>
 
 ━━━━━━━━━━━━━━
 
@@ -9,19 +9,19 @@ Choose a section below or type any command directly."""
 
 BUTTONS = [
     [
-        InlineKeyboardButton("🏠 Start", callback_data="cmd_start"),
-        InlineKeyboardButton("🌍 About", callback_data="cmd_about"),
+        InlineKeyboardButton("Start", callback_data="cmd_start"),
+        InlineKeyboardButton("About", callback_data="cmd_about"),
     ],
     [
-        InlineKeyboardButton("🚀 Project", callback_data="cmd_project"),
-        InlineKeyboardButton("🛍 Shop", callback_data="cmd_shop"),
+        InlineKeyboardButton("Project", callback_data="cmd_project"),
+        InlineKeyboardButton("Shop", callback_data="cmd_shop"),
     ],
     [
-        InlineKeyboardButton("💹 Finance", callback_data="cmd_finance"),
-        InlineKeyboardButton("📩 Contact", callback_data="cmd_contact"),
+        InlineKeyboardButton("Finance", callback_data="cmd_finance"),
+        InlineKeyboardButton("Contact", callback_data="cmd_contact"),
     ],
     [
-        InlineKeyboardButton("🏓 Ping", callback_data="cmd_ping"),
+        InlineKeyboardButton("Ping", callback_data="cmd_ping"),
     ],
 ]
 
@@ -53,10 +53,10 @@ async def help_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(chat_id=chat_id, text=text, parse_mode=parse_mode)
 
     if query.data == "cmd_start":
-        await send("👋 <b>Welcome to Makki!</b>\n\nUse /help to see all commands.")
+        await send("<b>Welcome to Makki!</b>\n\nUse /help to see all commands.")
 
     elif query.data == "cmd_ping":
-        await send("🏓 Pong! Bot is online.")
+        await send("Pong! Bot is online.")
 
     elif query.data == "cmd_about":
         await about_command(_fake(chat_id, context), context)

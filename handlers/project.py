@@ -2,45 +2,45 @@ from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
 async def project_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = """🚀 <b>Makki Project</b>
+    text = """<b>Makki Project</b>
 
 ━━━━━━━━━━━━━━
 
-🌍 <b>What is Makki?</b>
+    <b>What is Makki?</b>
 
 Makki is a digital ecosystem built around creativity, technology, entrepreneurship and continuous growth.
 
 ━━━━━━━━━━━━━━
 
-🧠 <b>Current Stage</b>
+    <b>Current Stage</b>
 
-📦 Version: v1 (Early Build)
-⚙️ Status: Active Development
-🌐 Mode: Build in Public
-
-━━━━━━━━━━━━━━
-
-🧩 <b>Modules</b>
-
-🤖 Bot System — Telegram interface
-💹 Finance Module — Forex + Crypto
-🛍 Shop System — Services and rewards
-🎮 Game Layer — coming soon
-💰 Economy Layer — coming soon
+    Version: v1 (Early Build)
+    Status: Active Development
+    Mode: Build in Public
 
 ━━━━━━━━━━━━━━
 
-📡 <b>Status</b>
+    <b>Modules</b>
 
-🟢 Bot: Online
-🟢 Finance: Active
-🟢 Shop: Active (demo)
-🟡 Economy: In development
-🔴 Casino: Not active yet
+    Bot System — Telegram interface
+    Finance Module — Forex + Crypto
+    Shop System — Services and rewards
+    Game Layer — coming soon
+    Economy Layer — coming soon
 
 ━━━━━━━━━━━━━━
 
-📩 makki.creative@gmail.com
+    <b>Status</b>
+
+    Bot: Online
+    Finance: Active
+    Shop: Active (demo)
+    Economy: In development
+    Casino: Not active yet
+
+━━━━━━━━━━━━━━
+
+makki.creative@gmail.com
 
 © 2025–2026 Makki — Growth • Creativity • Innovation"""
 

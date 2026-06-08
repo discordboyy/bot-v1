@@ -25,29 +25,29 @@ async def finance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             bnb_price = float(bnb.json()["price"])
 
         text = f"""
-💹 <b>Makki Finance</b>
+    <b>Makki Finance</b>
 
-🌍 <b>Forex</b>
-USD → EUR: <b>{usd_eur}</b>
-USD → NOK: <b>{usd_nok}</b>
-USD → UAH: <b>{usd_uah}</b>
+    <b>Forex</b>
+    USD → EUR: <b>{usd_eur}</b>
+    USD → NOK: <b>{usd_nok}</b>
+    USD → UAH: <b>{usd_uah}</b>
 
-━━━━━━━━━━━━━━
+    ━━━━━━━━━━━━━━
 
-₿ <b>Crypto</b>
-BTC: <b>${btc_price:,.2f}</b>
-ETH: <b>${eth_price:,.2f}</b>
-BNB: <b>${bnb_price:,.2f}</b>
+    <b>Crypto</b>
+    BTC: <b>${btc_price:,.2f}</b>
+    ETH: <b>${eth_price:,.2f}</b>
+    BNB: <b>${bnb_price:,.2f}</b>
 
-━━━━━━━━━━━━━━
-🚀 Makki System
-"""
+    ━━━━━━━━━━━━━━
+    Makki System
+    """
 
         await update.message.reply_text(text, parse_mode="HTML")
 
     except Exception as e:
         await update.message.reply_text(
-            f"❌ Finance service unavailable\n{e}"
+            f"Finance service unavailable\n{e}"
         )
 
 

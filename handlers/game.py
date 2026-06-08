@@ -5,9 +5,9 @@ async def game(update, context):
 
     if result <= 7:
         await update.message.reply_text(
-            f"🏓 Ты отбил мяч! Выпало {result}"
+            f"Ты отбил мяч! Выпало {result}"
         )
     else:
         await update.message.reply_text(
-            f"❌ Промах! Выпало {result}"
+            f"Промах! Выпало {result}"
         )

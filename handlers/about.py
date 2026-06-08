@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
 async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = """🌍 <b>About Makki</b>
+    text = """<b>About Makki</b>
 
 ━━━━━━━━━━━━━━
 
@@ -12,7 +12,7 @@ The project combines creativity, technology, entrepreneurship and continuous sel
 
 ━━━━━━━━━━━━━━
 
-🎯 <b>Mission</b>
+    <b>Mission</b>
 
 To build in public. Makki openly shares ideas, experiments, projects, progress, successes and failures.
 
@@ -20,7 +20,7 @@ The goal is not perfection — the goal is growth.
 
 ━━━━━━━━━━━━━━
 
-🚀 <b>What Makki Creates</b>
+    <b>What Makki Creates</b>
 
 - Websites
 - Web Applications
@@ -31,19 +31,19 @@ The goal is not perfection — the goal is growth.
 
 ━━━━━━━━━━━━━━
 
-💡 <b>Core Values</b>
+    <b>Core Values</b>
 
-✨ Creativity
-📈 Growth
-🔍 Transparency
-⚡ Innovation
-🤝 Community
+    Creativity
+    Growth
+    Transparency
+    Innovation
+    Community
 
 ━━━━━━━━━━━━━━
 
-🛍 Use /shop to explore services
-📊 Use /finance for market updates
-📩 Use /contact to get in touch
+    Use /shop to explore services
+    Use /finance for market updates
+    Use /contact to get in touch
 
 ━━━━━━━━━━━━━━
 

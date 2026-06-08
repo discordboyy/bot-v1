@@ -4,7 +4,7 @@
 # =========================
 
 WELCOME_MESSAGE = """
-🌑 Welcome to Makki
+Welcome to Makki
 
 A system built around growth, process, and creation.
 
@@ -17,7 +17,7 @@ Use the menu below to explore features.
 # =========================
 
 FINANCE_INFO = """
-💰 Finance System
+Finance System
 
 • Forex rates (Frankfurter API)
 • Crypto prices (Binance API)
@@ -30,7 +30,7 @@ FINANCE_INFO = """
 # =========================
 
 SHOP_INFO = """
-🛒 Makki Shop
+Makki Shop
 
 Digital services & experimental rewards:
 
@@ -38,7 +38,7 @@ Digital services & experimental rewards:
 • MVP — 15k–30k NOK
 • Web App — 25k–50k NOK
 
-💡 Experimental items:
+Experimental items:
 • Autograph — $100
 • Discord Nitro — 10,000 pts (temporary unavailable)
 """
@@ -48,5 +48,5 @@ Digital services & experimental rewards:
 # ERROR / SYSTEM
 # =========================
 
-ERROR_NO_BALANCE = "⚠️ Balance system is not available yet."
-ERROR_NOT_READY = "⚠️ Feature is still in development."
+ERROR_NO_BALANCE = "Balance system is not available yet."
+ERROR_NOT_READY = "Feature is still in development."

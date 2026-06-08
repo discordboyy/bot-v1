@@ -4,27 +4,27 @@ from telegram.ext import ContextTypes, CommandHandler
 
 async def contact_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
-📩 <b>Makki Contact Center</b>
+<b>Makki Contact Center</b>
 
 Makki — digital brand focused on creativity, development and innovation.
 
-👤 Founder:
+Founder:
 Makar Hrydkovets (Mertygraal)
 
-📧 Email:
+Email:
 makki.creative@gmail.com
 
-🌐 About Makki:
+About Makki:
 A platform documenting growth, creation, technology, design and entrepreneurship in public.
 
-🔗 Socials:
+Socials:
 • Instagram
 • X (Twitter)
 • Discord
 • YouTube
 • Telegram
 
-🚀 Future Vision:
+Future Vision:
 Building an international ecosystem of creative projects, digital products, communities and innovation hubs.
 
 © 2025 Makki. All rights reserved.
