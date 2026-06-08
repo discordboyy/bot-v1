@@ -6,13 +6,16 @@ from telegram.ext import ContextTypes, CommandHandler
 
 async def finance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
-        async with httpx.AsyncClient(timeout=10) as client:
+        async with httpx.AsyncClient(
+            timeout=10,
+            follow_redirects=True
+        ) as client:
 
             forex_task = client.get(
-                "https://api.frankfurter.app/latest",
+                "https://api.frankfurter.dev/v1/latest",
                 params={
                     "base": "USD",
-                    "symbols": "EUR,NOK,UAH"
+                    "symbols": "EUR,GBP,NOK"
                 }
             )
 
@@ -34,9 +37,14 @@ async def finance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         forex_data = forex_resp.json()
         crypto_data = crypto_resp.json()
 
-        usd_eur = forex_data["rates"]["EUR"]
-        usd_nok = forex_data["rates"]["NOK"]
-        usd_uah = forex_data["rates"]["UAH"]
+        rates = forex_data["rates"]
+
+        usd_eur = rates["EUR"]
+        usd_gbp = rates["GBP"]
+        usd_nok = rates["NOK"]
+        
+        eur_usd = 1 / usd_eur
+        gbp_usd = 1 / usd_gbp
 
         crypto = {
             item["symbol"]: {
@@ -62,9 +70,9 @@ async def finance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 <b>Makki Finance</b>
 
 <b>Forex</b>
-USD → EUR: <b>{usd_eur:.4f}</b>
-USD → NOK: <b>{usd_nok:.4f}</b>
-USD → UAH: <b>{usd_uah:.4f}</b>
+EUR/USD: <b>{eur_usd:.4f}</b>
+GBP/USD: <b>{gbp_usd:.4f}</b>
+USD/NOK: <b>{usd_nok:.4f}</b>
 
 ━━━━━━━━━━━━━━
 
