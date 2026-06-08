@@ -40,7 +40,7 @@ async def help_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
-    chat_id = query.message.chat_id
+    chat_id = update.effective_chat.id
 
     # Импортируем тексты напрямую из хендлеров
     from handlers.about import about_command
@@ -59,19 +59,19 @@ async def help_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await send("Pong! Bot is online.")
 
     elif query.data == "cmd_about":
-        await about_command(_fake(chat_id, context), context)
+        await about_command(update, context)
 
     elif query.data == "cmd_project":
-        await project_command(_fake(chat_id, context), context)
+        await project_command(update, context)
 
     elif query.data == "cmd_shop":
-        await shop_command(_fake(chat_id, context), context)
+        await shop_command(update, context)
 
     elif query.data == "cmd_finance":
-        await finance_command(_fake(chat_id, context), context)
+        await finance_command(update, context)
 
     elif query.data == "cmd_contact":
-        await contact_command(_fake(chat_id, context), context)
+        await contact_command(update, context)
 
 
 def _fake(chat_id, context):
