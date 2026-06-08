@@ -69,7 +69,7 @@ async def finance_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = f"""
 <b>Makki Finance</b>
 
-<b>Forex</b>
+<b>💵 Forex</b>
 EUR/USD: <b>{eur_usd:.4f}</b>
 GBP/USD: <b>{gbp_usd:.4f}</b>
 USD/NOK: <b>{usd_nok:.4f}</b>
@@ -78,14 +78,11 @@ USD/NOK: <b>{usd_nok:.4f}</b>
 
 <b>₿ Crypto (24h)</b>
 
-BTC: <b>${btc_price:,.2f}</b>
-{fmt_change(btc_change)}
+BTC: <b>${btc_price:,.2f} - {fmt_change(btc_change)}
 
-ETH: <b>${eth_price:,.2f}</b>
-{fmt_change(eth_change)}
+ETH: <b>${eth_price:,.2f} - {fmt_change(eth_change)}
 
-BNB: <b>${bnb_price:,.2f}</b>
-{fmt_change(bnb_change)}
+BNB: <b>${bnb_price:,.2f} - {fmt_change(bnb_change)}
 
 ━━━━━━━━━━━━━━
 Makki System
