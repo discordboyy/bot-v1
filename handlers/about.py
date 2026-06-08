@@ -1,5 +1,11 @@
-from telegram import Update
+from telegram import (
+    Update,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+)
 from telegram.ext import ContextTypes, CommandHandler
+
+PHOTO_URL = "assets/makki_about.jpg"
 
 async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """<b>About Makki</b>
@@ -49,6 +55,32 @@ The goal is not perfection — the goal is growth.
 
 © 2025–2026 Makki — Growth • Creativity • Innovation"""
 
-    await update.message.reply_text(text, parse_mode="HTML")
+    keyboard = [
+        [
+            InlineKeyboardButton(
+                "🛍 Explore Services",
+                callback_data="cmd_shop"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                "📈 Market Updates",
+                callback_data="cmd_finance"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                "📩 Get in Touch",
+                callback_data="cmd_contact"
+            )
+        ],
+    ]
+
+    await update.message.reply_photo(
+        photo=PHOTO_URL,
+        caption=text,
+        parse_mode="HTML",
+        reply_markup=InlineKeyboardMarkup(keyboard),
+    )
 
 about_handler = CommandHandler("about", about_command)
