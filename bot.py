@@ -11,7 +11,7 @@ from handlers.game import game
 from handlers.finance import finance_handler
 from handlers.about import about_handler
 from handlers.contact import contact_handler
-from handlers.help import help_handler
+from handlers.help import help_handler, help_button_handler
 from handlers.shop import shop_handler
 from handlers.project import project_handler
 
@@ -30,6 +30,7 @@ def main():
     app.add_handler(about_handler)
     app.add_handler(contact_handler)
     app.add_handler(help_handler)
+    app.add_handler(help_button_handler)
     app.add_handler(shop_handler)
     app.add_handler(project_handler)
 

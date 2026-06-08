@@ -1,37 +1,100 @@
-from telegram import Update
-from telegram.ext import ContextTypes, CommandHandler
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import ContextTypes, CommandHandler, CallbackQueryHandler
+
+HELP_TEXT = """🌑 <b>Makki — Command Center</b>
+
+━━━━━━━━━━━━━━
+
+Choose a section below or type any command directly."""
+
+BUTTONS = [
+    [
+        InlineKeyboardButton("🏠 Start", callback_data="cmd_start"),
+        InlineKeyboardButton("🌍 About", callback_data="cmd_about"),
+    ],
+    [
+        InlineKeyboardButton("🚀 Project", callback_data="cmd_project"),
+        InlineKeyboardButton("🛍 Shop", callback_data="cmd_shop"),
+    ],
+    [
+        InlineKeyboardButton("💹 Finance", callback_data="cmd_finance"),
+        InlineKeyboardButton("📩 Contact", callback_data="cmd_contact"),
+    ],
+    [
+        InlineKeyboardButton("🏓 Ping", callback_data="cmd_ping"),
+    ],
+]
+
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = """❓ <b>Makki Help Center</b>
+    # Когда будет фото — раскомментируй блок с photo и удали reply_text
+    # PHOTO_URL = "https://your-image-url.jpg"
+    # await update.message.reply_photo(
+    #     photo=PHOTO_URL,
+    #     caption=HELP_TEXT,
+    #     parse_mode="HTML",
+    #     reply_markup=InlineKeyboardMarkup(BUTTONS),
+    # )
+    await update.message.reply_text(
+        HELP_TEXT,
+        parse_mode="HTML",
+        reply_markup=InlineKeyboardMarkup(BUTTONS),
+    )
 
-━━━━━━━━━━━━━━
 
-🤖 <b>Available Commands</b>
+async def help_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
 
-/start — Main welcome message
-/about — About Makki
-/project — Project overview
-/shop — Services and rewards
-/finance — Forex and crypto data
-/contact — Contact information
-/ping — Check if bot is online
-/help — This menu
+    commands = {
+        "cmd_start":   ("start",   "👋 Welcome to Makki!\n\nUse the buttons below to explore."),
+        "cmd_about":   ("about",   None),
+        "cmd_project": ("project", None),
+        "cmd_shop":    ("shop",    None),
+        "cmd_finance": ("finance", None),
+        "cmd_contact": ("contact", None),
+        "cmd_ping":    ("ping",    "🏓 Pong! Bot is online."),
+    }
 
-━━━━━━━━━━━━━━
+    data = query.data
+    if data not in commands:
+        return
 
-💡 <b>Coming Soon</b>
+    cmd_name, fallback = commands[data]
 
-💰 Balance System
-🎁 Daily Rewards
-📊 Levels and XP
-🎰 Casino (Slots, Coinflip, Roulette)
+    # Ищем хендлер по имени команды и вызываем его напрямую
+    from handlers.about import about_command
+    from handlers.project import project_command
+    from handlers.shop import shop_command
+    from handlers.finance import finance_command
+    from handlers.contact import contact_command
 
-━━━━━━━━━━━━━━
+    handler_map = {
+        "about":   about_command,
+        "project": project_command,
+        "shop":    shop_command,
+        "finance": finance_command,
+        "contact": contact_command,
+    }
 
-📧 makki.creative@gmail.com
+    if cmd_name in handler_map:
+        # Подменяем update так чтобы хендлер отвечал в тот же чат
+        class FakeUpdate:
+            class FakeMessage:
+                chat_id = query.message.chat_id
+                async def reply_text(self, *args, **kwargs):
+                    await context.bot.send_message(
+                        chat_id=query.message.chat_id, *args, **kwargs
+                    )
+            message = FakeMessage()
 
-© 2025–2026 Makki — Growth • Creativity • Innovation"""
+        await handler_map[cmd_name](FakeUpdate(), context)
+    else:
+        await context.bot.send_message(
+            chat_id=query.message.chat_id,
+            text=fallback,
+        )
 
-    await update.message.reply_text(text, parse_mode="HTML")
 
 help_handler = CommandHandler("help", help_command)
+help_button_handler = CallbackQueryHandler(help_button, pattern="^cmd_")
