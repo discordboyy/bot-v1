@@ -8,7 +8,7 @@ from telegram.ext import ContextTypes, CommandHandler
 PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki.png"
 
 async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = """<b>About Makki</b>
+    text = """<b>About Makki 💿</b>
 
 ━━━━━━━━━━━━━━
 
@@ -48,7 +48,7 @@ The goal is not perfection — the goal is growth.
 ━━━━━━━━━━━━━━
 
 
-© 2025–2026 Makki — Growth • Creativity • Innovation"""
+© 2025–2026 <a href="https://makki.no">Makki</a> — Growth • Creativity • Innovation"""
 
     keyboard = [
         [InlineKeyboardButton("🛍 Explore Services", callback_data="cmd_shop")],

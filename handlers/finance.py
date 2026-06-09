@@ -147,7 +147,7 @@ ETH: ${eth_price:,.2f} - {fmt_change(eth_change)}
 BNB: ${bnb_price:,.2f} - {fmt_change(bnb_change)}
 
 ━━━━━━━━━━━━━━
-Makki System
+<a href="https://makki.no"Makki System</a>
 """
 
             await context.bot.send_photo(
