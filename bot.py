@@ -14,6 +14,7 @@ from handlers.contact import contact_handler
 from handlers.help import help_handler, help_button_handler
 from handlers.shop import shop_handler
 from handlers.project import project_handler
+from scheduler import setup_scheduler  # ← добавил
 
 TOKEN = os.getenv("BOT_TOKEN")
 
@@ -33,6 +34,8 @@ def main():
     app.add_handler(help_button_handler)
     app.add_handler(shop_handler)
     app.add_handler(project_handler)
+
+    setup_scheduler(app)  # ← добавил
 
     print("Bot is running...")
 

@@ -1,3 +1,4 @@
+# handlers/shop.py
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
@@ -47,7 +48,7 @@ async def shop_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     makki.creative@gmail.com
 
-© 2025–2026 <a href="https://makki.no"Makki</a> — Growth • Creativity • Innovation"""
+© 2025–2026 <a href="https://makki.no">Makki</a> — Growth • Creativity • Innovation"""
 
     await context.bot.send_photo(
         chat_id=update.effective_chat.id,

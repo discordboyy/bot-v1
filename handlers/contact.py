@@ -1,3 +1,4 @@
+# handlers/contact.py
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
@@ -28,7 +29,7 @@ Socials:
 Future Vision:
 Building an international ecosystem of creative projects, digital products, communities and innovation hubs.
 
-© 2025 <a href="https://makki.no"Makki</a>. All rights reserved.
+© 2025 <a href="https://makki.no">Makki</a>. All rights reserved.
 """
 
     await context.bot.send_photo(
