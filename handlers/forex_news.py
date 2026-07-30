@@ -28,7 +28,7 @@ SOURCE_TZ = ZoneInfo("America/New_York")   # таймзона, в которой
 TARGET_TZ = ZoneInfo("Europe/Oslo")        # таймзона для отображения времени
 
 # ID канала, куда уходит автоматическая рассылка (тот же, что в scheduler.py)
-CHANNEL_ID = -1001997933600
+CHANNEL_ID = 
 
 HEADERS = {
     "User-Agent": (
