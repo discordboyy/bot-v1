@@ -22,6 +22,10 @@ BUTTONS = [
         InlineKeyboardButton("Contact", callback_data="cmd_contact"),
     ],
     [
+        InlineKeyboardButton("Forex", callback_data="cmd_forex"),
+        InlineKeyboardButton("Ads", callback_data="cmd_adv"),
+    ],
+    [
         InlineKeyboardButton("Ping", callback_data="cmd_ping"),
     ],
 ]
@@ -70,6 +74,12 @@ async def help_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     elif query.data == "cmd_finance":
         await finance_command(update, context)
+
+    elif query.data == "cmd_forex":
+        await forexnews_command(update, context)
+
+    elif query.data == "cmd_adv":
+        await sponsors_command(update, context)
 
     elif query.data == "cmd_contact":
         await contact_command(update, context)

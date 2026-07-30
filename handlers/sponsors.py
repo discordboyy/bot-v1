@@ -79,7 +79,10 @@ async def sponsors_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 # Registered under two aliases so /sponsors and /partners both work.
-sponsors_handler = CommandHandler(["sponsors", "partners"], sponsors_command)
+sponsors_handler = CommandHandler(
+    ["sponsors", "partners", "adv"],
+    sponsors_command
+)
 
 async def send_sponsors_update(context):
     await context.bot.send_photo(

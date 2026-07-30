@@ -166,4 +166,7 @@ async def forexnews_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"❌ Forex news error:\n{e}")
 
 
-forex_news_handler = CommandHandler("forexnews", forexnews_command)
+forex_news_handler = CommandHandler(
+    ["forexnews", "forex"],
+    forexnews_command
+)

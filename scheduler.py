@@ -9,7 +9,8 @@ from datetime import time
 from zoneinfo import ZoneInfo
 
 from handlers.forex_news import send_forex_news
-from handlers.sponsors import send_sponsors_update
+from handlers.sponsors import sponsors_handler
+from handlers.forex_news import forex_news_handler
 
 load_dotenv()
 
