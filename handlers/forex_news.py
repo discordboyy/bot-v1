@@ -9,13 +9,14 @@
 - добавлен пропуск выходных (суббота/воскресенье)
 - работает и как команда /forexnews (ручной запуск), и как job в scheduler.py (авто)
 """
-
 import logging
 from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
+import os
 
 import httpx
 from dateutil import parser as date_parser
+from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler
 
@@ -28,7 +29,9 @@ SOURCE_TZ = ZoneInfo("America/New_York")   # таймзона, в которой
 TARGET_TZ = ZoneInfo("Europe/Oslo")        # таймзона для отображения времени
 
 # ID канала, куда уходит автоматическая рассылка (тот же, что в scheduler.py)
-CHANNEL_ID = 
+load_dotenv()
+
+CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 
 HEADERS = {
     "User-Agent": (
