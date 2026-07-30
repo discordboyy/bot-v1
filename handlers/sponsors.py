@@ -8,7 +8,7 @@ load_dotenv()
 
 CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 
-PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki-v3.png"
+PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki-v6.png"
 
 # =========================
 # SPONSORS / PARTNERS DATA
@@ -32,24 +32,19 @@ SPONSORS = [
 ]
 
 
-def _kind_emoji(kind: str) -> str:
-    return "💎" if kind.lower() == "sponsor" else "🤝"
-
-
 def build_sponsors_text() -> str:
     if not SPONSORS:
         return (
-            "<b>Makki Sponsors & Partners 🤝</b>\n\n"
+            "<b>Makki Sponsors & Partners 🦋</b>\n\n"
             "━━━━━━━━━━━━━━\n\n"
             "No active sponsors or partners right now.\n"
             "Interested in partnering with Makki? Reach out via /contact."
         )
 
-    lines = ["<b>Makki Sponsors & Partners 🤝</b>", "", "━━━━━━━━━━━━━━", ""]
+    lines = ["<b>Makki Sponsors & Partners 🦋</b>", "", "━━━━━━━━━━━━━━", ""]
 
     for s in SPONSORS:
-        emoji = _kind_emoji(s["kind"])
-        lines.append(f"{emoji} <b>{s['name']}</b> — {s['kind']}")
+        lines.append(f"<b>{s['name']}</b> — {s['kind']}")
         lines.append(s["description"])
         lines.append(f'<a href="{s["link"]}">{s["link"]}</a>')
         lines.append("")
@@ -67,7 +62,7 @@ def build_sponsors_keyboard() -> InlineKeyboardMarkup | None:
     if not SPONSORS:
         return None
     keyboard = [
-        [InlineKeyboardButton(f"{_kind_emoji(s['kind'])} {s['name']}", url=s["link"])]
+        [InlineKeyboardButton(s["name"], url=s["link"])]
         for s in SPONSORS
     ]
     return InlineKeyboardMarkup(keyboard)
