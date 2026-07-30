@@ -1,14 +1,20 @@
+import os
 import logging
 import asyncio
 import httpx
+
+from dotenv import load_dotenv
 from telegram.ext import Application
 from datetime import time
 from zoneinfo import ZoneInfo
+
 from handlers.forex_news import send_forex_news
+
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-CHANNEL_ID = -1001997933600
+CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 
 SHOP_PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki-v2.png"
 FINANCE_PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki.png"
