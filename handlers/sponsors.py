@@ -1,6 +1,12 @@
 # handlers/sponsors.py
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, CommandHandler
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 
 PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/makki-v3.png"
 
@@ -79,3 +85,12 @@ async def sponsors_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Registered under two aliases so /sponsors and /partners both work.
 sponsors_handler = CommandHandler(["sponsors", "partners"], sponsors_command)
+
+async def send_sponsors_update(context):
+    await context.bot.send_photo(
+        chat_id=CHANNEL_ID,
+        photo=PHOTO_URL,
+        caption=build_sponsors_text(),
+        parse_mode="HTML",
+        reply_markup=build_sponsors_keyboard(),
+    )
