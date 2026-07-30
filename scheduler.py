@@ -9,6 +9,7 @@ from datetime import time
 from zoneinfo import ZoneInfo
 
 from handlers.forex_news import send_forex_news
+from handlers.sponsors import send_sponsors_update
 
 load_dotenv()
 
@@ -213,6 +214,13 @@ def setup_scheduler(app: Application):
         interval=14 * 24 * 60 * 60,
         first=20,
         name="shop_update"
+    )
+    
+    job_queue.run_repeating(
+        send_sponsors_update,
+        interval=7 * 24 * 60 * 60,   # раз в неделю — можно поменять
+        first=30,
+        name="sponsors_update"
     )
 
     job_queue.run_daily(
