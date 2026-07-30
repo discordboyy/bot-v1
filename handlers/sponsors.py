@@ -18,16 +18,10 @@ PHOTO_URL = "https://raw.githubusercontent.com/discordboyy/bot-v1/main/assets/ma
 
 SPONSORS = [
     {
-        "name": "Example Sponsor",
-        "kind": "Sponsor",
-        "description": "Short one-line pitch of what they do and why it matters to our audience.",
-        "link": "https://example.com",
-    },
-    {
-        "name": "Example Partner",
+        "name": "Marapain",
         "kind": "Partner",
-        "description": "Short one-line pitch of the partnership / what users get from them.",
-        "link": "https://example.com",
+        "description": "We are proud to partner with Marapain, supporting creative work and bringing more opportunities to our community.",
+        "link": "https://t.me/marapainbeatssss",
     },
 ]
 
