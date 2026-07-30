@@ -93,7 +93,7 @@ def events_for_day(events: list[dict], target_date: date, min_impact: str = "Hig
 
 
 def build_forex_news_text(events: list[dict], target_date: date) -> str:
-    header = f"<b>📅 Forex Factory — High Impact новости на {target_date.strftime('%d.%m.%Y')}</b>"
+    header = f"<b>Forex Factory — High Impact новости на {target_date.strftime('%d.%m.%Y')}</b>"
 
     if not events:
         return f"{header}\n\n━━━━━━━━━━━━━━\n\nНа этот день High-impact новостей нет."
