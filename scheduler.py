@@ -2,6 +2,9 @@ import logging
 import asyncio
 import httpx
 from telegram.ext import Application
+from datetime import time
+from zoneinfo import ZoneInfo
+from handlers.forex_news import send_forex_news
 
 logger = logging.getLogger(__name__)
 
@@ -204,6 +207,13 @@ def setup_scheduler(app: Application):
         interval=14 * 24 * 60 * 60,
         first=20,
         name="shop_update"
+    )
+
+    job_queue.run_daily(
+        send_forex_news,
+        time=time(8, 0, tzinfo=ZoneInfo("Europe/Oslo")),
+        days=(0, 1, 2, 3, 4),  # Пн–Пт, 0=понедельник ... 6=воскресенье
+        name="forex_news_daily",
     )
 
     logger.info("Scheduler jobs registered.")
