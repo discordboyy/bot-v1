@@ -103,13 +103,17 @@ def build_forex_news_text(events: list[dict], target_date: date) -> str:
     for e in events:
         time_str = e["datetime"].strftime("%H:%M")
         emoji = IMPACT_EMOJI.get(e["impact"], "🔴")
-        lines.append(f"{emoji} <b>{time_str}</b> — [{e['country']}] {e['title']}")
+        title = html.escape(str(e.get("title") or ""))
+        country = html.escape(str(e.get("country") or ""))
+        lines.append(f"{emoji} <b>{time_str}</b> — [{country}] {title}")
 
         extra = []
-        if e.get("forecast"):
-            extra.append(f"Прогноз: {e['forecast']}")
-        if e.get("previous"):
-            extra.append(f"Пред.: {e['previous']}")
+        forecast = e.get("forecast")
+        previous = e.get("previous")
+        if forecast:
+            extra.append(f"Прогноз: {html.escape(str(forecast))}")
+        if previous:
+            extra.append(f"Пред.: {html.escape(str(previous))}")
         if extra:
             lines.append("   " + " | ".join(extra))
         lines.append("")
