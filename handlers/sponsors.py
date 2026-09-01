@@ -21,7 +21,7 @@ SPONSORS = [
         "name": "Marapain",
         "kind": "Partner",
         "description": "We are proud to partner with Marapain, supporting creative work and bringing more opportunities to our community.",
-        "link": "https://t.me/marapainbeatssss",
+        "link": "https://t.me/marapaindidyoudotheswag",
     },
 ]
 
