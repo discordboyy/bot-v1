@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 from handlers.forex_news import send_forex_news
 from handlers.sponsors import sponsors_handler, send_sponsors_update
 from handlers.forex_news import forex_news_handler
-from handlers.epic_deals import send_epic_deal, refresh_epic_deals
+from handlers.epic_deals import send_epic_deal
 
 load_dotenv()
 
@@ -230,13 +230,6 @@ def setup_scheduler(app: Application):
         time=time(8, 0, tzinfo=ZoneInfo("Europe/Oslo")),
         days=(0, 1, 2, 3, 4),  # Пн–Пт, 0=понедельник ... 6=воскресенье
         name="forex_news_daily",
-    )
-
-    job_queue.run_daily(
-        refresh_epic_deals,
-        time=time(8, 0, tzinfo=ZoneInfo("Europe/Oslo")),
-        days=(0,),  # только понедельник
-        name="epic_refresh",
     )
 
     job_queue.run_daily(
